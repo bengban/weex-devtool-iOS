@@ -60,13 +60,13 @@
 + (NSDictionary *)getLogLevelMap {
     NSDictionary *logLevelEnumToString =
     @{
-      @"all":@(WXLogLevelDebug),
-      @"error":@(WXLogLevelError),
-      @"warn":@(WXLogLevelWarning),
-      @"info":@(WXLogLevelInfo),
-      @"log":@(WXLogLevelLog),
-      @"debug":@(WXLogLevelDebug),
-      @"off":@(WXLogLevelOff)
+      @"all":@(WeexLogLevelDebug),
+      @"error":@(WeexLogLevelError),
+      @"warn":@(WeexLogLevelWarning),
+      @"info":@(WeexLogLevelInfo),
+      @"log":@(WeexLogLevelLog),
+      @"debug":@(WeexLogLevelDebug),
+      @"off":@(WeexLogLevelOff)
       };
     return logLevelEnumToString;
 }
@@ -213,8 +213,8 @@
 
 - (void)domain:(WXDebugDomain *)domain sendLogLevel:(NSString *)level withCallback:(void (^)(id error))callback {
     NSDictionary *logLevelMap = [WXDebugDomainController getLogLevelMap];
-    WXLogLevel wxLogLevel = [[logLevelMap objectForKey:level] integerValue];
-    [WXLog setLogLevel:wxLogLevel];
+    WeexLogLevel WeexLogLevel = [[logLevelMap objectForKey:level] integerValue];
+    [WXLog setLogLevel:WeexLogLevel];
     callback(nil);
 }
 
